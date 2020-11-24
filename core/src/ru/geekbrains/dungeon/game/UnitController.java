@@ -80,5 +80,6 @@ public class UnitController {
         if (unitIndex <= index) {
             index--;
         }
+        gc.getUnitController().getHero().addMoney();
     }
 }

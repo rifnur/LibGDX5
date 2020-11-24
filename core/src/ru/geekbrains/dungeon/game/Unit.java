@@ -22,6 +22,7 @@ public abstract class Unit implements Poolable {
     int targetX, targetY;
     int turns, maxTurns;
     float innerTimer;
+   // int money;
 
     public int getDefence() {
         return defence;
@@ -68,6 +69,8 @@ public abstract class Unit implements Poolable {
         hp -= amount;
         if (hp <= 0) {
             gc.getUnitController().removeUnitAfterDeath(this);
+//            gc.getUnitController().getHero().addRound();
+
         }
         return hp <= 0;
     }

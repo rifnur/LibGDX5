@@ -8,6 +8,8 @@ public class BattleCalc {
         out -= target.getDefence();
         if (out < 0) {
             out = 0;
+
+
         }
         return out;
     }

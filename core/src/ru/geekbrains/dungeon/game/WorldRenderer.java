@@ -34,7 +34,8 @@ public class WorldRenderer {
         batch.setColor(1, 1, 1, 1);
 
         font24.draw(batch, "Player: " + gc.getUnitController().getHero().getName(), 20, 680);
-
+        font24.draw(batch, "Money: " + gc.getUnitController().getHero().getMoney(), 20, 660);
+        font24.draw(batch, "Round: " + gc.getUnitController().getHero().getRound(), 20, 640);
         batch.end();
     }
 }

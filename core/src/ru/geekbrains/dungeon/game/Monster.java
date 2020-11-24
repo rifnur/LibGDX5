@@ -31,6 +31,7 @@ public class Monster extends Unit {
         if (canIMakeAction()) {
             if (isStayStill()) {
                 aiBrainsImplseTime += dt;
+
             }
             if (aiBrainsImplseTime > 0.4f) {
                 aiBrainsImplseTime = 0.0f;
