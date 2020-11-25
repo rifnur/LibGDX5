@@ -2,6 +2,7 @@ package ru.geekbrains.dungeon.game;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,10 @@ public class UnitController {
     public Hero getHero() {
         return hero;
     }
+
+//    public Unit getCurrentUnit() {
+//        return currentUnit;
+//    }
 
     public boolean isItMyTurn(Unit unit) {
         return currentUnit == unit;
@@ -51,10 +56,29 @@ public class UnitController {
         this.nextTurn();
     }
 
+    @Override
+    public String toString() {
+        return "UnitController{" +
+                "allUnits=" + allUnits +
+                '}';
+    }
+
+    public void addMonster() {
+
+        this.monsterController.activate(MathUtils.random(1, 15), MathUtils.random(1,15));
+        this.allUnits.add(monsterController.newObject());
+
+    }
+
     public void nextTurn() {
         index++;
+//        if (gc.getUnitController().getCurrentUnit().hp<100) {gc.getUnitController().getHero().addHP();}
         if (index >= allUnits.size()) {
             index = 0;
+            gc.getUnitController().getHero().addRound();
+            if (gc.getUnitController().getHero().getRound()%3==0){
+                addMonster();
+            }
         }
         currentUnit = allUnits.get(index);
         currentUnit.startTurn();
@@ -72,6 +96,7 @@ public class UnitController {
         if (!currentUnit.isActive() || currentUnit.getTurns() == 0) {
             nextTurn();
         }
+
     }
 
     public void removeUnitAfterDeath(Unit unit) {

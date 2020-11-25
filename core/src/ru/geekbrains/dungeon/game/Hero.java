@@ -44,4 +44,6 @@ public class Hero extends Unit {
     public void addMoney() { money+= MathUtils.random(1, 3);}
 
     public void addRound() { round++;}
+
+    public void addHP() { hp++;}
 }

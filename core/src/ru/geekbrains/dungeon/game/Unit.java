@@ -142,6 +142,8 @@ public abstract class Unit implements Poolable {
         return turns;
     }
 
+    public void addHP() { hp++;}
+
     public boolean isCellEmpty(int cx, int cy) {
         return gc.getGameMap().isCellPassable(cx, cy) && gc.getUnitController().isCellFree(cx, cy);
     }
